@@ -1,0 +1,21 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="android:colorBackground">@android:color/white</item>
+        <!-- 可修改启动页面的图片 -->
+        <item name="android:windowBackground">@android:color/white</item>
+
+        <!--指定 activity 的切换动画-->
+        <item name="android:windowAnimationStyle">@style/Anim_Activity</item>
+
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+
+</resources>

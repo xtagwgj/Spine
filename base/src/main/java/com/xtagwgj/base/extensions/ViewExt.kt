@@ -1,5 +1,7 @@
 package com.xtagwgj.base.extensions
 
+import android.content.Context
+import android.util.TypedValue
 import android.widget.TextView
 import com.blankj.utilcode.util.RegexUtils
 
@@ -18,3 +20,12 @@ fun TextView.isIdCard(): Boolean {
 
 //精确验证邮箱
 fun TextView.isEmail() = RegexUtils.isEmail(text.trim())
+
+/**
+ * 获取theme的颜色
+ */
+fun Context.getColorInTheme(attrColor: Int): Int {
+    val typedValue = TypedValue()
+    theme.resolveAttribute(attrColor, typedValue, true)
+    return typedValue.data
+}

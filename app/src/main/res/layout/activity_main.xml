@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     android:orientation="vertical"
     tools:context="com.xtagwgj.spinetest.main.MainActivity">
 
@@ -14,7 +13,6 @@
         android:id="@+id/bt_city"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_gravity="center_horizontal"
         android:text="选择城市" />
 
@@ -23,5 +21,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="8dp" />
+
+    <com.xtagwgj.base.view.NumberRunningTextView
+        android:id="@+id/et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="8dp"
+        tools:text="123"
+        android:textColor="@color/colorPrimary"
+        app:textType="money" />
+
+    <com.xtagwgj.base.view.PowerfulEditText
+        android:layout_width="match_parent"
+        app:funcType="canClear"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -4,18 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/dimen_toolbar_height"
+    android:layout_height="wrap_content"
     android:background="?attr/colorPrimary"
     android:fitsSystemWindows="true"
-    app:contentInsetStart="0dp">
+    android:minHeight="?actionBarSize"
+    android:theme="@style/BaseTheme"
+    app:contentInsetStart="0dp"
+    app:titleTextColor="@android:color/white">
 
     <ImageView
         android:id="@+id/toolbar_back"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:contentDescription="@null"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"
+        android:padding="8dp"
+        android:layout_marginStart="8dp"
         android:src="@mipmap/icon_arrow" />
 
     <TextView
@@ -23,17 +26,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="@color/colorTitle"
+        android:textColor="@android:color/white"
         android:textSize="@dimen/text_size_title"
         tools:text="标题栏" />
 
     <ImageView
+
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="end"
         android:contentDescription="@null"
-        android:paddingEnd="16dp"
-        android:paddingStart="16dp"
+        android:padding="8dp"
+        android:layout_marginEnd="8dp"
         android:src="@mipmap/icon_more" />
 
 </android.support.v7.widget.Toolbar>

@@ -3,6 +3,7 @@ package com.xtagwgj.base.utils
 import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import android.app.Activity
+import android.graphics.Color
 import android.os.Build
 import android.text.TextUtils
 import android.view.View
@@ -152,7 +153,9 @@ object StatusLightUtils {
 
     @TargetApi(Build.VERSION_CODES.M)
     private fun setAndroidNativeLightStatusBar(activity: Activity) {
-        val decor = activity.window.decorView
-        decor.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+        activity.window.apply {
+            decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            statusBarColor = Color.TRANSPARENT
+        }
     }
 }

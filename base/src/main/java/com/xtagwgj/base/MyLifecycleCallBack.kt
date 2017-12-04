@@ -9,7 +9,8 @@ import android.support.v7.widget.Toolbar
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.kelin.translucentbar.library.TranslucentBarManager
+import com.xtagwgj.base.view.statusbar.Eyes
+import org.jetbrains.annotations.NotNull
 
 /**
  *  自定义的Lifecycle
@@ -41,6 +42,7 @@ abstract class MyLifecycleCallBack : Application.ActivityLifecycleCallbacks {
         }
     }
 
+
     override fun onActivityStarted(activity: Activity) {
 
     }
@@ -67,17 +69,17 @@ abstract class MyLifecycleCallBack : Application.ActivityLifecycleCallbacks {
     /**
      *  状态栏 模式
      */
-    open fun initStatusBarStyle(activity: Activity) {
-        // ios 样式的沉浸模式
-        TranslucentBarManager(activity).transparent(activity)
+    open fun initStatusBarStyle(@NotNull activity: Activity) {
+        Eyes.setStatusBarColor(activity, activity.resources.getColor(R.color.colorPrimaryDark))
 
-//         Log.e("BaseApplication", "${StatusLightUtils.tryLightStatus(activity)}")
+        //设置app的背景颜色
+        activity.window.setBackgroundDrawableResource(R.color.colorBackground)
     }
 
     /**
      *  控制 toolbar 中内容的具体呈现
      */
-    open fun initToolbar(activity: Activity, toolbar: Toolbar) {
+    open fun initToolbar(@NotNull activity: Activity, @NotNull toolbar: Toolbar) {
 
         //初始化标题文字
         activity.findViewById<TextView>(R.id.toolbar_title)?.run {

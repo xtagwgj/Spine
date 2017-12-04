@@ -25,11 +25,11 @@ dependencies {
     //library 使用 api 对外公开了所以可以省略
 //    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 //    implementation 'com.android.support:appcompat-v7:26.1.0'
+//    implementation 'com.android.support:support-v4:26.1.0'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation project(':base')
 
-    //LiveData and ViewModel
-    implementation "android.arch.lifecycle:extensions:1.0.0"
+
 }

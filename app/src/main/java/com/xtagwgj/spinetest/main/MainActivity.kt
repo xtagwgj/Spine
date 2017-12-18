@@ -7,7 +7,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import android.support.v7.app.AppCompatActivity
+import android.view.KeyEvent
 import com.blankj.utilcode.util.LogUtils
+import com.xtagwgj.base.AppManager
 import com.xtagwgj.base.utils.ToastUtil
 import com.xtagwgj.base.view.citylist.CityInfoBean
 import com.xtagwgj.base.view.citylist.CityListSelectActivity
@@ -24,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
         fun doAction(activity: Activity) {
             activity.startActivity(Intent(activity, MainActivity::class.java))
+            AppManager.finishActivity(activity)
         }
     }
 
@@ -49,6 +52,7 @@ class MainActivity : AppCompatActivity() {
                 tv_info.text = "选择的城市 --> $it"
             }
         })
+
         //ViewModel 中金额信息的变化
         mainViewModel.money.observe(this, Observer<Float> {
             et_number.setContent("$it")
@@ -96,5 +100,27 @@ class MainActivity : AppCompatActivity() {
                 mainViewModel.selectCity.value = selectInfo
             }
         }
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            return isConsumeBackKey()
+        }
+        return super.onKeyDown(keyCode, event)
+    }
+
+    //记录在主页最后一次按返回键的时间
+    private var exitTime: Long = 0
+
+    private fun isConsumeBackKey(): Boolean {
+        if (System.currentTimeMillis() - exitTime > 2000) {
+            //未处理监听事件，请求后续监听
+            mainViewModel.toast.value = "再按一次退出程序"
+            exitTime = System.currentTimeMillis()
+        } else {
+            AppManager.AppExit(this,false)
+        }
+
+        return true
     }
 }

@@ -101,5 +101,5 @@ abstract class MyLifecycleCallBack : Application.ActivityLifecycleCallbacks {
         }
     }
 
-    abstract fun getMainActivityClass(): Class<Any>
+     abstract fun getMainActivityClass(): Class<Any>
 }

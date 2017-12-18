@@ -1,12 +1,77 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xtagwgj.spinetest.user.LoginFragment">
+    android:orientation="vertical"
+    tools:context=".user.SignUpFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
+
+        <com.xtagwgj.base.view.PowerfulEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:hint="输入手机号"
+            android:inputType="phone"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            app:funcType="canClear" />
+
+        <com.xtagwgj.base.view.PowerfulEditText
+            android:id="@+id/et_password"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:hint="输入密码"
+            android:inputType="numberPassword"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            app:funcType="canWatchPwd" />
+
+        <com.xtagwgj.base.view.PowerfulEditText
+            android:id="@+id/et_passwordConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/white"
+            android:hint="确认密码"
+            android:inputType="numberPassword"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            app:funcType="canWatchPwd" />
+
+        <Button
+            android:id="@+id/bt_signUp"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/shape_button_main"
+            android:enabled="true"
+            android:text="注册"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="SignUpFragment" />
+        android:id="@+id/tv_loginNow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+        android:padding="8dp"
+        android:text="去登录"
+        android:textSize="16sp" />
 
-</LinearLayout>
+</RelativeLayout>

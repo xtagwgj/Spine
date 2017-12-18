@@ -1,15 +1,101 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.xtagwgj.spinetest.user.LoginFragment">
 
-
-    <EditText
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:layout_marginTop="48dp"
-        android:background="@color/white"
-        android:inputType="phone" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical">
 
-</LinearLayout>
+        <com.xtagwgj.base.view.PowerfulEditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:hint="输入手机号"
+            android:inputType="phone"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:textSize="14sp"
+            app:funcType="canClear" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="1dp"
+            android:background="@color/white">
+
+            <Button
+                android:id="@+id/bt_captcha"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/bt_captcha_selector"
+                android:enabled="false"
+                android:paddingEnd="8dp"
+                android:paddingStart="8dp"
+                android:text="获取验证码"
+                android:textColor="@color/colorBtDisable"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/et_captcha"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_toLeftOf="@id/bt_captcha"
+                android:background="@null"
+                android:hint="输入验证码"
+                android:inputType="number"
+                android:maxLength="6"
+                android:paddingEnd="16dp"
+                android:paddingStart="16dp"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/bt_login"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_margin="16dp"
+            android:background="@drawable/bt_login_selector"
+            android:enabled="false"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="16dp"
+        android:paddingEnd="16dp"
+        android:paddingStart="16dp">
+
+        <TextView
+            android:id="@+id/tv_forgetPwd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="忘记密码"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/tv_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:padding="8dp"
+            android:text="注册"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

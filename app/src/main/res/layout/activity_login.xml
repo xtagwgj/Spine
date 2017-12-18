@@ -6,6 +6,8 @@
     android:orientation="vertical"
     tools:context=".user.LoginActivity">
 
+    <include layout="@layout/include_title" />
+
     <FrameLayout
         android:id="@+id/contentFrame"
         android:layout_width="match_parent"

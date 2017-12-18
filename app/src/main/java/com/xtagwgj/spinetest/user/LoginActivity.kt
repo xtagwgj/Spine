@@ -3,7 +3,10 @@ package com.xtagwgj.spinetest.user
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.View
+import android.widget.TextView
 import com.xtagwgj.base.ActivityUtils
 import com.xtagwgj.base.utils.ToastUtil
 import com.xtagwgj.spinetest.R
@@ -29,25 +32,32 @@ class LoginActivity : AppCompatActivity() {
         mViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
 
         initView()
-
-//        MainActivity.doAction(this)
     }
 
     private fun initView() {
+
+        findViewById<View>(R.id.toolbar_back).visibility = View.GONE
+        val titleTextView = findViewById<TextView>(R.id.toolbar_title)
+
         //页面切换
         mViewModel.pageInt.observe(this, Observer { pageFlag ->
-            val fragment = when (pageFlag) {
+            val fragment: Fragment = when (pageFlag) {
 
-                    PAGE_SIGNUP -> {
-                        SignUpFragment.newInstance()
-                    }
-
-                    PAGE_FORGET -> {
-                        ForgetFragment.newInstance()
-                    }
-
-                    else -> LoginFragment.newInstance()
+                PAGE_SIGNUP -> {
+                    titleTextView.text = "注册"
+                    SignUpFragment.newInstance()
                 }
+
+                PAGE_FORGET -> {
+                    titleTextView.text = "忘记密码"
+                    ForgetFragment.newInstance()
+                }
+
+                else -> {
+                    titleTextView.text = "登录"
+                    LoginFragment.newInstance()
+                }
+            }
 
             ActivityUtils.replaceFragmentInActivity(supportFragmentManager, fragment, R.id.contentFrame)
         })
@@ -56,6 +66,7 @@ class LoginActivity : AppCompatActivity() {
         mViewModel.toast.observe(this, Observer { toastMsg ->
             toastMsg?.let {
                 ToastUtil.showToast(this, toastMsg)
+                mViewModel.toast.value = null
             }
         })
     }

@@ -60,6 +60,7 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel.selectCityEvent.observe(this, Observer<Void> {
             CityListSelectActivity.doAction(this)
+//            SeekActivity.doAction(this)
         })
 
         mainViewModel.toast.observe(this, Observer<String> {

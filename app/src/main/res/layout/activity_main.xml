@@ -28,13 +28,13 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="8dp"
-        tools:text="123"
         android:textColor="@color/colorPrimary"
-        app:textType="money" />
+        app:textType="money"
+        tools:text="123" />
 
     <com.xtagwgj.base.view.PowerfulEditText
         android:layout_width="match_parent"
-        app:funcType="canClear"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        app:funcType="canClear" />
 
 </LinearLayout>

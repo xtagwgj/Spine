@@ -10,4 +10,7 @@
 
     <color name="colorBtDisable">#6F6F6F</color>
     <color name="colorBtEnable">#CACCCE</color>
+
+
+    <color name="colorSeekBarDefault">#c3c3c3</color>
 </resources>

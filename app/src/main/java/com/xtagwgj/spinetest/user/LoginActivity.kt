@@ -30,6 +30,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         mViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
+        lifecycle.addObserver(mViewModel)
 
         initView()
     }
@@ -69,6 +70,11 @@ class LoginActivity : AppCompatActivity() {
                 mViewModel.toast.value = null
             }
         })
+    }
+
+    override fun onDestroy() {
+        lifecycle.removeObserver(mViewModel)
+        super.onDestroy()
     }
 
 }

@@ -32,16 +32,25 @@ class LoginViewModel : BaseViewModel() {
      */
     val tryLogin = MutableLiveData<Boolean>().apply { false }
 
-    fun checkLoginInfo() {
-        SPUtils.getInstance().apply {
 
+    /**
+     * 检查登录，填充账号密码信息
+     * 1.判断当前是否是最新版本，不是最新版本的要清除登录的信息重新登录【保证数据的正确性】
+     * 2.判断是否记住了密码，记住了密码就填充记录的账号密码信息
+     * 3.判断是否需要自动登录
+     */
+    private fun checkLoginInfo() {
+        SPUtils.getInstance().apply {
             isRememberPassword.value = getBoolean("isRememberPassword", false)
             if (isRememberPassword.value == true) {
                 phone.value = getString("phone")
                 password.value = getString("password")
                 tryLogin.value = true
             }
-
         }
+    }
+
+    override fun onStart() {
+        checkLoginInfo()
     }
 }

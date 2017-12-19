@@ -69,8 +69,6 @@ class MainActivity : AppCompatActivity() {
                 ToastUtil.showToast(this, it)
             }
         })
-
-        mainViewModel.toast.value = "Test"
     }
 
     private fun initEventListener() {

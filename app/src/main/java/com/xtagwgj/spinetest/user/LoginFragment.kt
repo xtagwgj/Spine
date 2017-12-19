@@ -61,8 +61,6 @@ class LoginFragment : Fragment(), View.OnClickListener {
         bt_login.setOnClickListener(this)
         tv_forgetPwd.setOnClickListener(this)
         tv_signUp.setOnClickListener(this)
-
-        mViewModel.checkLoginInfo()
     }
 
     override fun onClick(view: View) {
@@ -70,7 +68,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             bt_captcha.id -> {
                 //获取验证码
                 TimerCount(60000, 1000, bt_captcha,
-                        "获取验证码", "%d s后重试").start()
+                        "获取验证码", "%ds 后重试").start()
             }
 
             bt_login.id -> {
@@ -96,7 +94,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
     private fun doActionLogin() {
         val phone = et_phone.text.toString().trim()
         val code = et_captcha.text.toString().trim()
-        val isRemember = true
+        val isRemember = false
 
         if (phone == "18566077938" && code == "111111") {
 
@@ -120,7 +118,7 @@ class LoginFragment : Fragment(), View.OnClickListener {
             }
 
             doAsync {
-                SystemClock.sleep(2000)
+                SystemClock.sleep(3000)
                 uiThread {
                     dialog.dismiss()
                     MainActivity.doAction(activity)

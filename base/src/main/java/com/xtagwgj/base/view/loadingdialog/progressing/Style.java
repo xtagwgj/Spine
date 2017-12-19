@@ -27,4 +27,5 @@ public enum Style {
     Style(int value) {
         this.value = value;
     }
+
 }

@@ -46,6 +46,11 @@ public class SpinKitView extends ProgressBar {
         setIndeterminate(true);
     }
 
+    public void setStyle(Style style) {
+        this.mStyle = style;
+        init();
+    }
+
     private void init() {
         Sprite sprite = SpriteFactory.create(mStyle);
         setIndeterminateDrawable(sprite);
